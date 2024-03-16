@@ -2,9 +2,11 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { CliforModule } from './modules/clifor/clifor.module';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { typeOrmAsyncConfig } from './database/config/typeorm.config';
 
 @Module({
-  imports: [CliforModule],
+  imports: [TypeOrmModule.forRootAsync(typeOrmAsyncConfig), CliforModule],
   controllers: [AppController],
   providers: [AppService],
 })
