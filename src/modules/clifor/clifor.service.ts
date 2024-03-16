@@ -1,26 +1,39 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 import { CreateCliforDto } from './dto/create-clifor.dto';
 import { UpdateCliforDto } from './dto/update-clifor.dto';
+import { Clifor } from './entities/clifor.entity';
 
 @Injectable()
 export class CliforService {
-  create(createCliforDto: CreateCliforDto) {
-    return 'This action adds a new clifor';
+  constructor(
+    @InjectRepository(Clifor)
+    private cliforRepository: Repository<Clifor>,
+  ) {}
+  async create(createCliforDto: CreateCliforDto) {
+    await this.cliforRepository.save(createCliforDto);
+    return createCliforDto;
   }
 
   findAll() {
-    return `This action returns all clifor`;
+    return this.cliforRepository.find();
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} clifor`;
+    return this.cliforRepository.findOne({ where: { id } });
   }
 
-  update(id: number, updateCliforDto: UpdateCliforDto) {
-    return `This action updates a #${id} clifor`;
+  async update(id: number, updateCliforDto: UpdateCliforDto) {
+    const clifor = await this.cliforRepository.findBy({ id });
+    if (!clifor) {
+      throw new NotFoundException(`Clifor #${id} not found`);
+    }
+    await this.cliforRepository.update(id, updateCliforDto);
+    return updateCliforDto;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} clifor`;
+  async remove(id: number): Promise<void> {
+    await this.cliforRepository.delete(id);
   }
 }
