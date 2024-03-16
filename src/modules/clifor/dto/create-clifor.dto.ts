@@ -1,6 +1,6 @@
 export class CreateCliforDto {
   nome: string;
-  cpf_cnpj: number;
+  cpf_cnpj: string;
   contato: string;
   cep: number;
   endereco: string;

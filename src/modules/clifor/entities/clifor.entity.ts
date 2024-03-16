@@ -7,14 +7,14 @@ import {
   BeforeUpdate,
 } from 'typeorm';
 
-@Entity({ name: 'clifors' })
+@Entity({ name: 'clifor' })
 export class Clifor {
   @PrimaryGeneratedColumn()
   id: number;
   @Column()
   nome: string;
   @Column()
-  cpf_cnpj: number;
+  cpf_cnpj: string;
   @Column()
   contato: string;
   @Column()
