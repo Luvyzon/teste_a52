@@ -12,10 +12,12 @@ export class Clifor1710605125001 implements MigrationInterface {
             isPrimary: true,
             isGenerated: true,
             generationStrategy: 'increment',
+            isNullable: false,
           },
           {
             name: 'nome',
             type: 'varchar',
+            isNullable: false,
           },
           {
             name: 'razao_social',
@@ -24,10 +26,12 @@ export class Clifor1710605125001 implements MigrationInterface {
           {
             name: 'cpf_cnpj',
             type: 'varchar',
+            isNullable: false,
           },
           {
             name: 'contato',
             type: 'varchar',
+            isNullable: false,
           },
           {
             name: 'email',
@@ -52,10 +56,12 @@ export class Clifor1710605125001 implements MigrationInterface {
           {
             name: 'cli_for',
             type: 'varchar',
+            isNullable: false,
           },
           {
             name: 'ativo',
             type: 'varchar',
+            isNullable: false,
           },
           {
             name: 'created_at',
