@@ -16,7 +16,7 @@ export class CreateUserDto {
   })
   @IsString()
   @Length(3, 100)
-  user_login: string;
+  username: string;
 
   @ApiProperty({
     example: 'ABC$1234',
