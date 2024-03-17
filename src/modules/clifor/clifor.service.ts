@@ -30,7 +30,7 @@ export class CliforService {
       throw new NotFoundException(`Clifor #${id} not found`);
     }
     await this.cliforRepository.update(id, updateCliforDto);
-    return updateCliforDto;
+    return { message: 'Cliente/Fornecedor atualizado com sucesso' };
   }
 
   async remove(id: number) {

@@ -30,7 +30,7 @@ export class UsersService {
       throw new NotFoundException(`User #${id} not found`);
     }
     await this.userRepository.update(id, updateUserDto);
-    return updateUserDto;
+    return { message: 'Usuário atualizado com sucesso' };
   }
 
   async remove(id: number) {
