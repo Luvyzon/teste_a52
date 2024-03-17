@@ -20,5 +20,13 @@ services:
     ports:
       - 8080:8080
 
+  api_nest:
+    build: .
+    ports:
+      - 3000:3000
+    depends_on:
+      - postgres
+    restart: always
+
 volumes:
   pg-data:

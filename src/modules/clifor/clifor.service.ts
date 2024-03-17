@@ -33,7 +33,8 @@ export class CliforService {
     return updateCliforDto;
   }
 
-  async remove(id: number): Promise<void> {
+  async remove(id: number) {
     await this.cliforRepository.delete(id);
+    return { message: 'Cliente/Fornecedor removido com sucesso' };
   }
 }

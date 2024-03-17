@@ -18,11 +18,19 @@ export class Clifor1710605125001 implements MigrationInterface {
             type: 'varchar',
           },
           {
+            name: 'razao_social',
+            type: 'varchar',
+          },
+          {
             name: 'cpf_cnpj',
             type: 'varchar',
           },
           {
             name: 'contato',
+            type: 'varchar',
+          },
+          {
+            name: 'email',
             type: 'varchar',
           },
           {
