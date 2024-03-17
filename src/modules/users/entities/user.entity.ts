@@ -7,43 +7,19 @@ import {
   BeforeUpdate,
 } from 'typeorm';
 
-@Entity({ name: 'clifor' })
-export class Clifor {
+@Entity({ name: 'users' })
+export class User {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
-  nome: string;
+  name: string;
 
   @Column()
-  razao_social: string;
+  login: string;
 
   @Column()
-  cpf_cnpj: string;
-
-  @Column()
-  contato: string;
-
-  @Column()
-  email: string;
-
-  @Column()
-  cep: number;
-
-  @Column()
-  endereco: string;
-
-  @Column()
-  cidade: string;
-
-  @Column()
-  estado: string;
-
-  @Column()
-  cli_for: number;
-
-  @Column()
-  ativo: number;
+  password: string;
 
   @CreateDateColumn()
   created_at: Date;
