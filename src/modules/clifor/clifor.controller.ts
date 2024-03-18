@@ -21,6 +21,12 @@ export class CliforController {
   }
 
   @UseGuards(AuthGuard)
+  @Post('/search')
+  findBySearch(@Body() updateCliforDto: UpdateCliforDto) {
+    return this.cliforService.findBySearch(updateCliforDto);
+  }
+
+  @UseGuards(AuthGuard)
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.cliforService.findOne(+id);
