@@ -8,7 +8,7 @@ export class CreateUserDto {
   })
   @IsString()
   @Length(3, 100)
-  nome: string;
+  name: string;
 
   @ApiProperty({
     example: 'admin',

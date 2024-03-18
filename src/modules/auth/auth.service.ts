@@ -21,4 +21,15 @@ export class AuthService {
       access_token: await this.jwtService.signAsync(payload),
     };
   }
+
+  async createAdmin() {
+    const adminExists = this.usersService.findByUsername('admin');
+    if (!adminExists) {
+      this.usersService.create({
+        name: 'Admin',
+        username: 'admin',
+        password: await bcrypt.hash('ABC$1234', 10),
+      });
+    }
+  }
 }
