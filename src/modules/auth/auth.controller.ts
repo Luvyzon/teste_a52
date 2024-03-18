@@ -8,8 +8,8 @@ export class AuthController {
 
   @HttpCode(HttpStatus.OK)
   @Post('login')
-  signIn(@Body() signInDto: Record<string, any>) {
-    this.authService.createAdmin();
+  async signIn(@Body() signInDto: Record<string, any>) {
+    await this.authService.createAdmin();
     return this.authService.signIn(signInDto.username, signInDto.password);
   }
 }
