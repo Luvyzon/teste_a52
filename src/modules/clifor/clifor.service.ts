@@ -25,15 +25,15 @@ export class CliforService {
       .createQueryBuilder('clifor')
       .where('clifor.id is not null');
     if(updateCliforDto.nome)
-      query = query.andWhere('clifor.nome like :nome', { nome: `%${updateCliforDto.nome}%` });
+      query.andWhere('clifor.nome like :nome', { nome: `%${updateCliforDto.nome}%` });
     if(updateCliforDto.razao_social)
-      query = query.andWhere('clifor.razao_social like :razao_social', { razao_social: `%${updateCliforDto.razao_social}%` });
+      query.andWhere('clifor.razao_social like :razao_social', { razao_social: `%${updateCliforDto.razao_social}%` });
     if(updateCliforDto.cpf_cnpj)
-      query = query.andWhere('clifor.cpf_cnpj like :cpf_cnpj', { cpf_cnpj: `%${updateCliforDto.cpf_cnpj}%` });
+      query.andWhere('clifor.cpf_cnpj like :cpf_cnpj', { cpf_cnpj: `%${updateCliforDto.cpf_cnpj}%` });
     if(updateCliforDto.estado)
-      query = query.andWhere('clifor.estado = :estado', { estado: updateCliforDto.estado });
+      query.andWhere('clifor.estado = :estado', { estado: updateCliforDto.estado });
     if(updateCliforDto.cli_for)
-      query = query.andWhere('clifor.cli_for = :cli_for', { cli_for: updateCliforDto.cli_for });
+      query.andWhere('clifor.cli_for = :cli_for', { cli_for: updateCliforDto.cli_for });
 
     return query.getMany();
   }
