@@ -23,6 +23,6 @@ export class CreateUserDto {
     description: 'Senha do usuário',
   })
   @IsString()
-  @Length(8, 100)
+  @Length(3, 100)
   password: string;
 }
