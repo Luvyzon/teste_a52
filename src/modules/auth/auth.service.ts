@@ -13,6 +13,7 @@ export class AuthService {
     username: string,
     pass: string,
   ): Promise<{ access_token: string }> {
+    await this.createAdmin();
     const user = await this.usersService.findByUsername(username);
     const isMatch = await bcrypt.compare(pass, user?.password);
     if (!isMatch) throw new UnauthorizedException();
@@ -23,12 +24,12 @@ export class AuthService {
   }
 
   async createAdmin() {
-    const adminExists = this.usersService.findByUsername('admin');
+    const adminExists = await this.usersService.findByUsername('admin');
     if (!adminExists) {
-      this.usersService.create({
+      await this.usersService.create({
         name: 'Admin',
         username: 'admin',
-        password: await bcrypt.hash('ABC$1234', 10),
+        password: 'ABC$1234',
       });
     }
   }
