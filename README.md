@@ -2,6 +2,7 @@
 
 API REST para cadastro de Clientes e Fornecedores
 
+
 ## Como iniciar pelo Docker
 Deve seguir o passo a passo em sequencia
 ```bash
@@ -17,6 +18,8 @@ $ npm run migration:run
 ```
 
 ## Infos
+
+os parametros do arquivo .env estão no arquivo example.env
 
 Portas
 Postgresql: 5432
